@@ -8,10 +8,7 @@ app.use(userRoute);
 app.use(express.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.set("views", "./src/views");
-// app.use(express.static(__dirname + "/public"));
 app.use(express.static(path.join(__dirname, "public")));
-
-// app.use("/src", express.static(path.join(__dirname, "public")));
 app.listen(port, () => {
   console.log("running on http://localhost:5050");
 });

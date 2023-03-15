@@ -6,6 +6,8 @@ const data = require("./dataSeed");
 const render = require("./src/controller/renderPage");
 //render page
 router.get("/", render.dashboard);
+router.get("/auth/login", render.login);
+router.get("/auth/register", render.register);
 //api post
-router.post("/auth/login", users.login);
+router.post("/api/login", users.login);
 module.exports = router;
