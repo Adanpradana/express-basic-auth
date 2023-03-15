@@ -7,4 +7,16 @@ const getAllData = (req, res) => {
 const getAdminData = (req, res) => {
   res.render("index");
 };
-module.exports = { getAllData, getAdminData };
+
+const login = (jwt) => {
+  return (req, res) => {
+    const { name, password } = req.body;
+    const user = users.usersData.find(
+      (user) => user.name === name && user.password === password
+    );
+
+    const tokenSign = jwt.sign(user, process.env.TOKEN);
+    res.json({ tokenSign });
+  };
+};
+module.exports = { getAllData, getAdminData, login };
