@@ -7,4 +7,12 @@ const getAllData = (req, res) => {
 const getAdminData = (req, res) => {
   res.render("index");
 };
-module.exports = { getAllData, getAdminData };
+
+const login = (req, res) => {
+  const { name, password } = req.body;
+  const findCredential = users.usersData.find((user) => {
+    return user.name === name && user.password === password;
+  });
+  findCredential ? res.redirect("/") : res.redirect("/auth/login");
+};
+module.exports = { getAllData, getAdminData, login };
