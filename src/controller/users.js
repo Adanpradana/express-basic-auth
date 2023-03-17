@@ -8,11 +8,17 @@ const getAdminData = (req, res) => {
   res.render("index");
 };
 
-const login = (req, res) => {
+const login = async (req, res) => {
   const { name, password } = req.body;
-  const findCredential = users.usersData.find((user) => {
-    return user.name === name && user.password === password;
-  });
-  findCredential ? res.redirect("/") : res.redirect("/auth/login");
+  try {
+    return await users.usersData.find((user) => {
+      if (user.name === name && user.password === password) {
+        return res.send("olret");
+      }
+      res.send("no data!");
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 module.exports = { getAllData, getAdminData, login };
