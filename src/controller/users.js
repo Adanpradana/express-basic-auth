@@ -1,5 +1,5 @@
 const users = require("../../dataSeed");
-
+const getBcrypt = require("../utils/bcrypt");
 const getAllData = (req, res) => {
   res.status(200).json({ meta: "success", data: users.usersData });
 };
@@ -13,7 +13,7 @@ const login = async (req, res) => {
   try {
     return await users.usersData.find((user) => {
       if (user.name === name && user.password === password) {
-        return res.send("olret");
+        return res.send(gensalt);
       }
       res.send("no data!");
     });
