@@ -21,7 +21,18 @@
         </p>
       </div>
       <div class="border p-5">
-        <form action="/auth/login" method="post">
+        <form action="/auth/register" method="post">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              name="name"
+              placeholder="create username"
+            />
+          </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label"
               >Email address</label
@@ -32,6 +43,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               name="email"
+              placeholder="yourname@yourdomain.com"
             />
             <div id="emailHelp" class="form-text">
               We'll never share your email with anyone else.
@@ -46,19 +58,10 @@
               class="form-control"
               id="exampleInputPassword1"
               name="password"
+              placeholder="***"
             />
           </div>
-          <div class="mb-3 form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Check me out</label
-            >
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Register</button>
         </form>
       </div>
     </div>

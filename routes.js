@@ -9,20 +9,12 @@ const passport = require("passport");
 const app = express();
 const flash = require("express-flash");
 app.use(flash());
-initPassport(passport, (user) =>
-  data.usersData.find((userFind) => userFind.name === user)
-);
-//render page
+
 router.get("/", render.dashboard);
-router.get("/auth/register", render.register);
 router.get("/auth/login", render.login);
-//api post
-router.post(
-  "/auth/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/auth/login",
-    failureFlash: "true",
-  })
-);
+router.get("/auth/register", render.register);
+
+router.post("/auth/login", users.login);
+router.post("/auth/register", users.register);
+
 module.exports = router;
