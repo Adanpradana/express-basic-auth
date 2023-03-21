@@ -13,7 +13,7 @@ const login = async (req, res) => {
   try {
     return await users.usersData.find((user) => {
       if (user.name === name && user.password === password) {
-        return res.send(gensalt);
+        return res.redirect("/");
       }
       res.send("no data!");
     });

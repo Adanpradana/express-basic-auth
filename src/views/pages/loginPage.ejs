@@ -19,7 +19,10 @@
         <p class="font-monospace" style="font-size: 3rem">LOGIN TO CONTINUE</p>
       </div>
       <div class="border p-5">
-        <form action="/api/login" method="post">
+        <% if (messages.error) { %>
+        <div class="alert alert-danger" role="alert"><%= messages.error %></div>
+        <% } %>
+        <form action="/auth/login" method="post">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">User Name</label>
             <input
