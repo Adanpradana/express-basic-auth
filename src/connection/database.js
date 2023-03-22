@@ -4,7 +4,7 @@ const database = mongoose.connection;
 database.on("connection error", (error) => console.log(error));
 const User = new mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
       required: true,
     },

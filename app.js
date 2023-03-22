@@ -1,6 +1,5 @@
 const database = require("./src/connection/database");
 const session = require("express-session");
-const usersData = require("./dataSeed");
 const flash = require("express-flash");
 const userRoute = require("./routes");
 const passport = require("passport");
@@ -20,7 +19,7 @@ app.use(
   session({
     secret: process.env.SESSION_KEY,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: { maxAge: 60 * 60 * 1000 },
   })
 );
